@@ -22,4 +22,11 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgersql
+  encoding: unicode
+  pool: 5
+  database: test_luao
+  username: test_luao_user
+  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
