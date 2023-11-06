@@ -1,0 +1,20 @@
+<h1>カート</h1>
+<table>
+  <tr>
+    <th>商品</th>
+    <th>価格</th>
+    <th>数量</th>
+    <th>値段</th>
+    <th></th>
+  </tr>
+  <% @cart.cart_items.each do |cart_item| %>
+  <tr>
+    <td><%= cart_item.product.name %></td>
+    <td><%= cart_item.product.price %></td>
+    <td><%= cart_item.qty %></td>
+    <td><%= cart_item.product.price * cart_item.qty %></td>
+    <td><%= link_to '削除', cart_item, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to '商品一覧',  products_path %>

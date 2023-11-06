@@ -1,0 +1,14 @@
+<h1>商品一覧</h1>
+<ul>
+<% @products.each do |p| %>
+  <li>
+    <%= p.name %>
+    <%= p.price %>円
+    <%= link_to 'カート追加', new_cart_item_path(product_id: p.id)%>
+    <%= button_to '削除', product_path(p), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  </li>
+<% end %>
+<%= link_to '商品を追加する', new_product_path %>
+<%= link_to 'カートを見る', cart_path(current_cart.id) %>
+
+</ul>

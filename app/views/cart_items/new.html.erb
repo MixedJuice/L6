@@ -1,0 +1,14 @@
+<h1>商品をカートに追加</h1>
+<%= form_with model: @cart_item, local: true do |f| %>
+  <div>
+    <%= f.label :qty, "数量" %>
+    <%= f.number_field :qty %>
+  </div>
+  <div>
+    <%= f.hidden_field :product_id %>
+    <%= f.hidden_field :cart_id, value: Cart.first_or_create.id %>
+  </div>
+  <div>
+    <%= f.submit 'カートに追加' %>
+  </div>
+<% end %>
